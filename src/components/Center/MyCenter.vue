@@ -36,7 +36,7 @@
             <img slot="icon" style="width: 22px;height: 22px" src="../../../static/logo.png" width="24" height="24">
           </mt-cell>
           <mt-cell title="地址"  to="/address"  is-link value="带链接">
-            <span>{{title.address}}</span>
+            <span class="title_adderss">{{title.address}}</span>
             <img slot="icon" style="width: 22px;height: 22px" src="../../../static/logo.png" width="24" height="24">
           </mt-cell>
         </div>
@@ -66,7 +66,7 @@
         }
     }
 </script>
-<style scoped>
+<style >
   .ceneer{
     background: #f4f4f4;
   }
@@ -125,10 +125,16 @@
         border-radius: 0 0 10px 10px;
       }
   .main .main_content .mint-cell .mint-cell-wrapper .mint-cell-title{
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    text-align: left !important;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      display: table;
+      text-align: left !important;
+
+    }
+  .main .main_content .mint-cell .mint-cell-wrapper .mint-cell-value{
+    width: 60%;
+    margin-left: 2%;
 
   }
   .main_content{
@@ -150,5 +156,9 @@
         width: 100%;
         height: 100%;
       }
+  .title_adderss{
+;
+    margin-left: 2%;
+  }
 
 </style>

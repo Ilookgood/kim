@@ -87,10 +87,16 @@
       methods:{
         editVisibleShow(){
           this.editVisible=true
+          if(this.selected==0){
+
+          }
         },
         Visible(index,porduct){
-           console.log(index)
-          console.log(porduct)
+            console.log(porduct)
+            if(porduct.length==0){
+              this.editVisible=false;
+            }
+
         }
 
       },

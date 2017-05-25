@@ -12,6 +12,11 @@ import MyDoctor from '../components/page/MyDoctor/MyDoctor'
 import myDoctorList from '../components/page/MyDoctor/myDoctorList'
 import MyAgency from '../components/page/MyAgency/MyAgency'
 import MyPharmacy from '../components/page/MyPharmacy/MyPharmacy'
+import dataPhysician from '../components/page/DataGrid/dataPhysician'
+import LastMonthsSales from '../components/page/DataGrid/SalesManagement/LastMonthsSales'
+import TheMonthSales from '../components/page/DataGrid/SalesManagement/TheMonthSales'
+import AllDrugs from '../components/page/MyPharmacy/AllDrugs'
+import Classify from '../components/page/MyPharmacy/Classify'
 
 Vue.use(Router)
 export default new Router({
@@ -26,7 +31,22 @@ export default new Router({
     { path: '/DataList', name: 'DataList', component: DataList},
     { path: '/MyDoctor', name: 'MyDoctor', component: MyDoctor},
     { path: '/MyAgency', name: 'MyAgency', component: MyAgency},
-    { path: '/MyPharmacy', name: 'MyPharmacy', component: MyPharmacy},
-    { path: '/myDoctorList', name: 'myDoctorList', component: myDoctorList}
+    { path: '/MyPharmacy',redirect:'AllDrugs', name: 'MyPharmacy', component: MyPharmacy,
+      children:[
+        { path: '/AllDrugs', name: 'AllDrugs', component: AllDrugs},
+        { path: '/Classify', name: 'Classify', component: Classify}
+      ]
+    },
+    { path: '/myDoctorList', name: 'myDoctorList', component: myDoctorList},
+    { path: '/dataPhysician',redirect: '/TheMonthSales', name: 'dataPhysician', component: dataPhysician,
+      children:[
+        { path: '/LastMonthsSales', name: 'LastMonthsSales', component: LastMonthsSales},
+        { path: '/TheMonthSales',redirect:'', name: 'TheMonthSales', component: TheMonthSales}
+      ]
+    },
+
+
+
+
   ]
 })

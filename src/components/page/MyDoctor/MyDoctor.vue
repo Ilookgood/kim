@@ -14,7 +14,6 @@
             :value="item.value" @click.native="padlock(item.title,item)">
           </mt-cell>
         </div>
-
       </mt-search>
 
       <div class="Doctor_box" v-for="(Doctor,index) in Doctors" :key="Doctor.id" @click="handleEdit(index, Doctor.id)" >

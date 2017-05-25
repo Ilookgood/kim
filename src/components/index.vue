@@ -52,7 +52,7 @@
         }else if(id==3){
          this.$router.push(`/MyPharmacy`)
 
-        }else {
+        }else if(id==4){
         this.$router.push(`/DataList`)
 
         }
@@ -131,7 +131,7 @@
   .list_title{
     display: inline-block;
     text-align: left;
-    width: 65%;
+    width: 57%;
     vertical-align: middle;
     font-size: 16px;
     font-weight: 600;
