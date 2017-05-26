@@ -2,7 +2,7 @@
     <div class="Ify_menu">
       <div class="Ify_left" ref="menuWrapper">
         <ul>
-          <li class="Ify_left_li"  v-for="(item,$index) in sort" :class="{'current':currentIndex===$index}" @click="selectMenu($index,$event)">
+          <li class="Ify_left_li"  v-for="(item,index) in sort" :class="{'current':currentIndex===index}" @click="selectMenu(index,$event)">
             <span class="Ify_name">{{item.name}}</span>
           </li>
         </ul>
@@ -13,7 +13,7 @@
              <h3 class="Ify_right_name" >{{item.name}}</h3>
              <div>
              <ul  class="foodbg">
-               <li class="Ify_right_img_introduce" v-for="food in item.foods">
+               <li class="Ify_right_img_introduce" v-for="food in item.foods" >
                  <div class="foodimg">
                    <img :src="food.img">
                  </div>
@@ -72,22 +72,24 @@
         })
       },
       methods:{
-        selectMenu:function(index,event){
+        selectMenu(index,event){
           console.log(event)
           console.log(index)
             if(!event._constructed){
-                return
+                return;
             }
-
           let foodList=this.$refs.foodsWrapper.getElementsByClassName('food-list-hook');
-            let el=foodList[index];
+          let el=foodList[index];
+          console.log(el)
             this.foodsScroll.scrollToElement(el,300);
+          console.log(this.foodsScroll.scrollToElement(el,300))
         },
         _initScroll(){
                 this.meunScroll=new BScroll(this.$refs.menuWrapper,{
                     click:true
                 });
                 this.foodsScroll=new BScroll(this.$refs.foodsWrapper,{
+                    click:true,
                     probeType:3
                 })
                 this.foodsScroll.on('scroll',(pos)=>{
@@ -107,11 +109,13 @@
       },
       computed:{
        currentIndex(){
-
              for(let i=0;i<this.listHeight.length;i++){
-                 let hieghtone=this.listHeight[i];
-               let hieghtwto=this.listHeight[i + 1];
-                 if(!hieghtwto || (this.scrollY >= hieghtone && this.scrollY<hieghtwto)){
+                 let heightOne=this.listHeight[i];
+                 let heightWto=this.listHeight[i + 1];
+               console.log(heightOne)
+               console.log(heightWto)
+               console.log(this.scrollY)
+                 if(!heightWto || (this.scrollY >= heightOne && this.scrollY < heightWto)){
                    console.log(i)
                        return i;
                  }
@@ -144,6 +148,10 @@
   }
   .Ify_right{
     flex:1;
+  }
+  .col-xs-3 label{
+    line-height: 78px;
+    vertical-align: middle;
   }
   .Ify_right_name{
     width: 100%;

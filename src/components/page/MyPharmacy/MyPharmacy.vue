@@ -48,7 +48,6 @@
   }
   .options_to{
     display: block;
-
   }
   .router-link-active{
     border-bottom:2px solid #36b5f8;

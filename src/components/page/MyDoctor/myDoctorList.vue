@@ -1,11 +1,11 @@
 <template>
   <div>
-    <mt-header title="我的医生" fixed>
+    <mt-header title="张代理" fixed>
       <mt-button slot="left" icon="back" @click="$router.back(-1)" >返回</mt-button>
       <mt-button slot="right" icon="more"></mt-button>
     </mt-header>
     <div class="m_top40">
-        <div class="Doctor_content ks-clear">
+        <!--<div class="Doctor_content ks-clear">
           <div class="main_img">
             <img :src="img">
           </div>
@@ -33,12 +33,30 @@
 
 
                 </div>
-         </div>
+         </div>-->
+      <div  class="options_box ks-clear">
+        <div class="options_itme">
+          <router-link to="/octorMedicine"  class="options_to">
+            <div>11</div>
+            <div>医生的药品</div>
+          </router-link>
+        </div>
+        <div class="options_itme">
+          <router-link to="/MyMedicine"   class="options_to">
+            <div>15</div>
+            <div>我的药品</div>
+          </router-link>
+        </div>
+      </div>
+      <div class="grabble"><input class="grabble_input iconfont" type="text" placeholder="请输入药品名字"></div>
+      <div >
+        <router-view></router-view>
+      </div>
     </div>
-    <div class="options_bottom">
+ <!--   <div class="options_bottom">
       <div class="options_bottom_left">删除药品</div>
       <div class="options_bottom_right" @click="editVisibleShow">添加药品</div>
-    </div>
+    </div>-->
 
   </div>
 </template>
@@ -112,103 +130,54 @@
     }
 </script>
 <style scoped>
-  .Doctor_content{
-    padding:10px 20px 10px 25px;
-    background: #fff;
-  }
-  .main_img{
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    vertical-align: middle;
-  }
   .options_box{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    line-height:40px;
+    text-align: center;
+    background: #fff;
+    border-bottom: 1px solid #dddddd;
 
   }
-  .count_color{
+  .options_itme{
+    flex:1;
+    line-height: 20px;
+  }
+  .options_to{
+    display: block;
+  }
+  .router-link-active{
+    border-bottom:2px solid #36b5f8;
     color: #36b5f8;
-    margin-left: 10px;
-    vertical-align: bottom;
+    font-weight: bold;
   }
-  .options_content{
-    width: 65%;
-    display: inline-block;
-    text-align: left;
-    padding-left: 5%;
-    vertical-align: middle;
+  .grabble{
+    padding:10px 4%;
   }
-  .img_contcet{
-    display: inline-block;
-    width: 80%;
-    vertical-align: middle;
-    text-align: left;
+  .grabble_input{
+    width: 100%;
+    border:none;
+    border:1px solid #dddddd;
+    height:25px;
+    line-height:25px;
+    border-radius: 8px;
+    -webkit-tap-highlight-color:transparent;
+    outline:none;
   }
-  .options_bottom{
-    position: fixed;
-    bottom:60px;
-    height: 50px;
-    width:100%;
-
+  [placeholder] { text-align: center;font-size: 12px }
+  ::-moz-placeholder {
+    color: #dddddd;
+    text-indent: 5px; /* 没有用 */
+    opacity: 1!important;
   }
-  .options_bottom_left{
-    width: 50%;
-    height: 50px;
-    background: #ddd;
-    display: inline-block;
-    float: left;
-    color: #9a9a9a;
-    line-height: 50px;
-    font-size: 16px;
-    font-weight:600;
+  :-ms-input-placeholder {
+    color: dddddd;
+    text-indent: 5px;
   }
-  .options_bottom_right{
-    width: 50%;
-    height: 50px;
-    background: #3fc2f8;
-    display: inline-block;
-    float: left;
-    color: #fff;
-    line-height: 50px;
-    font-size: 16px;
-    font-weight:600;
+  ::-webkit-input-placeholder {
+    color: dddddd;
+    text-indent: 5px;
   }
 
-  .font_size{
-    font-size: 12px;
-    line-height: 24px;
-  }
-  .color_grey{
-    color: #888;
-
-  }
-  .img_right{
-    display: inline-block;
-    width: 50%;
-    vertical-align: middle;
-    font-size: 24px;
-    font-family:宋体;
-    font-weight:bolder;
-    text-align: right;
-    color: #ddd;
-  }
-  .optionsimg{
-    width: 60px;
-    height: 60px;
-    display: inline-block;
-    vertical-align: middle;
-  }
-  .mint-checkbox-core{
-    display: inline-block;
-    background-color: #fff;
-    border-radius: 100%;
-    border: 1px solid #ccc;
-    position: relative;
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-  }
-  .mint-checkbox-input:checked+.mint-checkbox-core {
-    background-color: #26a2ff;
-    border-color: #26a2ff;
-  }
 </style>
